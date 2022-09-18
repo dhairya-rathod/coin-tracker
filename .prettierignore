@@ -3,3 +3,5 @@ tsconfig.json
 tsconfig.node.json
 vite.config.json
 .prettierrc
+postcss.config.cjs
+tailwind.config.cjs
