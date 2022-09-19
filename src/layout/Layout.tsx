@@ -5,7 +5,7 @@ const Layout = () => {
   return (
     <>
       <Header />
-      <main className="h-full flex flex-col p-6 bg-zinc-700">
+      <main className="h-full flex flex-col py-6 px-20 bg-gradient-to-t from-gray-900 to-neutral-800">
         <Outlet />
       </main>
     </>

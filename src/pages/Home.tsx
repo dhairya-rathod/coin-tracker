@@ -1,20 +1,13 @@
-import { useEffect } from 'react';
-
-import { getMarketCoins } from '../services/coins';
+import CoinList from '../component/home/CoinList';
+import TrendingCoins from '../component/home/TrendingCoins';
 
 const Home = () => {
-  useEffect(() => {
-    async function fetchData() {
-      const data = await getMarketCoins().catch((err) => {
-        console.log('TCL ~ fetchData ~ err', err);
-      });
-      console.log('TCL ~ fetchData ~ data', data);
-    }
-
-    fetchData();
-  }, []);
-
-  return <div className="App">Home page</div>;
+  return (
+    <div className="home">
+      <TrendingCoins />
+      <CoinList />
+    </div>
+  );
 };
 
 export default Home;

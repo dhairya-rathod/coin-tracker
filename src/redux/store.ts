@@ -1,7 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
 
+import coinListReducer from './slices/coinList';
+import trendingCoinReducer from './slices/trendingCoins';
+
 export const store = configureStore({
-  reducer: {}
+  reducer: {
+    coinList: coinListReducer,
+    trendingCoins: trendingCoinReducer
+  }
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
