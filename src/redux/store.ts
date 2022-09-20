@@ -2,11 +2,13 @@ import { configureStore } from '@reduxjs/toolkit';
 
 import coinListReducer from './slices/coinList';
 import trendingCoinReducer from './slices/trendingCoins';
+import currencyReducer from './slices/currency';
 
 export const store = configureStore({
   reducer: {
     coinList: coinListReducer,
-    trendingCoins: trendingCoinReducer
+    trendingCoins: trendingCoinReducer,
+    currency: currencyReducer
   }
 });
 

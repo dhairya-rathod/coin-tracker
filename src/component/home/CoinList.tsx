@@ -1,38 +1,33 @@
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-
 import Table from '../UI/Table';
+import TablePagination from '../UI/TablePagination';
 import { columns } from './columns';
 
-import { selectCoins, fetchCoins } from '../../redux/slices/coinList';
-import { AppDispatch } from '../../redux/store';
-import { CoinListTable } from '../../utils/interface';
+import useCoinList from '../../hooks/useCoinList';
 
 const CoinList = () => {
-  const dispatch = useDispatch<AppDispatch>();
-
-  const [searchQuery, setSearchQuery] = useState<string>('');
-
-  const coinList: CoinListTable[] = useSelector(selectCoins);
-
-  useEffect(() => {
-    dispatch(fetchCoins({ currency: 'inr', perPage: 10 }));
-  }, []);
+  const { searchQuery, tableRows, activePage, paginationRange, setSearchQuery, setActivePage } =
+    useCoinList();
 
   return (
-    <section className="flex flex-col mt-16">
+    <section className="flex flex-col mt-8">
+      <h3 className="text-2xl mb-6 font-semibold">Cryptocurrency Prices by Market Cap</h3>
       <div className="rounded-md hover:border-slate-300 shadow-2x">
         <input
           className="w-full p-2 rounded-md outline-none bg-slate-200 text-black"
           type="text"
-          placeholder="Search coin"
+          placeholder="Search for cryptocurrency"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
       </div>
 
-      <div className="mt-4">
-        <Table columns={columns} data={coinList} />
+      <div className="mt-6">
+        <Table columns={columns} data={tableRows} />
+        <TablePagination
+          paginationRage={paginationRange}
+          activePage={activePage}
+          setPage={setActivePage}
+        />
       </div>
     </section>
   );

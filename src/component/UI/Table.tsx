@@ -35,7 +35,7 @@ const Table = ({ columns, data }: any) => {
         {rows.map((row, i) => {
           prepareRow(row);
           return (
-            <tr {...row.getRowProps()}>
+            <tr className="border-b border-slate-700" {...row.getRowProps()}>
               {row.cells.map((cell) => {
                 return (
                   <td

@@ -21,7 +21,7 @@ export interface CoinCardProps {
   rank: number;
 }
 
-export type CoinListTable = {
+export interface SingleCoin {
   id: string;
   symbol: string;
   name: string;
@@ -48,4 +48,6 @@ export type CoinListTable = {
   atl_date: Date;
   roi: null;
   last_updated: Date;
-}[];
+}
+
+export type CoinListTable = SingleCoin[];

@@ -22,3 +22,17 @@ body {
   display: flex;
   flex-direction: column;
 }
+
+/* * Tailwind custom class */
+@layer components {
+  .pagination-button {
+    @apply inline-block px-4 py-2 mx-0.5 rounded-full;
+  }
+  .pagination-button.active,
+  .pagination-button:hover {
+    @apply bg-slate-700 cursor-pointer;
+  }
+  .pagination-button.active {
+    @apply cursor-not-allowed;
+  }
+}
