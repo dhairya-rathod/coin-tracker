@@ -20,5 +20,14 @@ export const columns = [
   },
   { Header: 'Price', accessor: 'current_price' },
   { Header: 'Market Cap', accessor: 'market_cap' },
-  { Header: '24h %', accessor: 'price_change_24h' }
+  {
+    Header: '24h %',
+    accessor: 'price_change_24h',
+    Cell: ({ cell: { value } }: { cell: { value: number } }) => {
+      const isProfit = value > 0;
+      return (
+        <span className={` text-lg ${isProfit ? 'text-green-500' : 'text-red-500'}`}>{value}%</span>
+      );
+    }
+  }
 ];

@@ -37,7 +37,7 @@ const useCoinList = () => {
         name: { name: row.name, symbol: row.symbol },
         current_price: price,
         market_cap: marketCap,
-        price_change_24h: row.price_change_percentage_24h.toFixed(1) + '%'
+        price_change_24h: row.price_change_percentage_24h.toFixed(1)
       };
     });
 
